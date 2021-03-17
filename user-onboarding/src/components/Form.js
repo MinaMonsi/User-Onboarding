@@ -38,6 +38,12 @@ export default function UserForm(){
     
       return (
         <div className="formContainer">
+            <div style={{color: 'red'}}>
+                <div>{errors.user}</div>
+                <div>{errors.email}</div>
+                <div>{errors.password}</div>
+                <div>{errors.agree}</div>
+            </div>
             <h1></h1>
           <form>
             <label htmlFor="user">Name </label>
