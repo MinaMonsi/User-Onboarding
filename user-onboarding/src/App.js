@@ -16,7 +16,7 @@ import Form from './components/Form';
 
 function App(){
   return(
-    <div class="formDiv">
+    <div className="formDiv">
       <Form/>
     </div>
   )

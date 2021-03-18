@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import * as yup from "yup";
+import Axios from 'axios'
 import {schema} from './FormSchema'
+import axios from "axios";
 
 
 export default function UserForm(){
@@ -33,6 +35,20 @@ export default function UserForm(){
           setForm({ ...form, [name]: termsChecked })
       }
 
+      const submit = event  => {
+        event.preventDefault()
+        const newUser = { user: form.user.trim(), email: form.email, password: form.password, agree: form.agree }
+        axios.post(`https://reqres.in/api/users`, newUser)
+        .then(res => {
+          setForm({ user: '', email: '', password: '', agree: false})
+
+        })
+        .catch(err => {
+          debugger
+        })
+        console.log(newUser)
+      }
+
       useEffect(() => {
           schema.isValid(form).then(valid => setDisabled(!valid))
       }, [form])
@@ -46,7 +62,7 @@ export default function UserForm(){
                 <div>{errors.agree}</div>
             </div>
             <h1></h1>
-          <form>
+          <form onSubmit={submit}>
             <label htmlFor="user">Name </label>
               <input value={form.user} 
               name="user" 
