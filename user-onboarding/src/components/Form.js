@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { isSchema } from "yup";
+import * as yup from "yup";
+import {schema} from './FormSchema'
 
 
 export default function UserForm(){
@@ -33,7 +34,7 @@ export default function UserForm(){
       }
 
       useEffect(() => {
-          isSchema.isValid(form).then(valid => setDisabled(!valid))
+          schema.isValid(form).then(valid => setDisabled(!valid))
       }, [form])
     
       return (
