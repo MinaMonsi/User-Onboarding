@@ -6,22 +6,12 @@ import './App.css';
 import Form from './components/Form';
 import Users from './components/Users';
 
-// const initialFormValues = {
-//   //TEXT INPUTS
-//   user: '',
-//   email: '',
-//   password: '',
-//   //CHECKBOX
-//   agree: false,
-// }
-
-
 
 function App(){
   const [users, setUsers] = useState([])
   const addUser=(newUser) => {
-    setUser(
-      [...users, setUsers]
+    setUsers(
+      [...users, newUser]
     )
   }
   console.log(users);
