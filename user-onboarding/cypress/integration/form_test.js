@@ -21,5 +21,21 @@ describe('My Second Test', function (){
      })
  })
 
- 
+ describe('Password input', function(){
+     it('Takes input', function(){
+        cy.get('[name="password"]').type('Cats1234').should('exist')
+     })
+ })
+
+ describe('Terms of service checkbox', function(){
+     it('can check in agreement', function(){
+        cy.get('[type="checkbox"]').check().should('exist')
+     })
+ })
+
+ describe('Form submits', function(){
+     it('Submits input', function(){
+         cy.get('form').submit()
+     })
+ } )
 })
